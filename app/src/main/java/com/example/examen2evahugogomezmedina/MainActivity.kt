@@ -53,18 +53,18 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
         googleMap.setOnMapClickListener { latLng ->
-            // Mostrar un Toast con la latitud y la longitud
             Toast.makeText(
                 this,
-                "Latitud: ${latLng.latitude}, Longitud: ${latLng.longitude}",
+                " Nuevo bar creado en ${latLng.latitude}, ${latLng.longitude}",
                 Toast.LENGTH_LONG
             ).show()
-            //Establezco un marcador con el evento
             googleMap.addMarker((MarkerOptions()
                 .position(latLng)
                 .title("Marcador en destino")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)))
+                .snippet("http://iesjulianmarias.centros.educa.jcyl.es/sitio/")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)))
                 .draggable(true))
+
         }
     }
 
@@ -98,8 +98,4 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.menu_icono, menu)
     }
-
-
-
-
 }
